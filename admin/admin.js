@@ -1,11 +1,24 @@
-// TODO: Apna Firebase Config yahan paste karein
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_AUTH_DOMAIN",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_STORAGE_BUCKET",
-    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-    appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyBHnLupt5wKGvBXxwH8xW8CktMGiPtm7_g",
+  authDomain: "tanu-juely-shop.firebaseapp.com",
+  projectId: "tanu-juely-shop",
+  storageBucket: "tanu-juely-shop.firebasestorage.app",
+  messagingSenderId: "871557002619",
+  appId: "1:871557002619:web:4394cd9eca8ca068cef9de",
+  measurementId: "G-Y42N0N6F0W"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 };
 
 // Initialize Firebase
