@@ -30,7 +30,7 @@ const auth = firebase.auth();
 
 // Check Login Status
 auth.onAuthStateChanged((user) => {
-    if (user && user.email === "riyasharma.official342@gmail.com") {
+    if (user && user.email === "tanujuelyshop@gmail.com") {
         document.getElementById("login-box").classList.add("hidden");
         document.getElementById("dashboard").classList.remove("hidden");
         loadOrders(); // Orders load karein
@@ -42,8 +42,8 @@ auth.onAuthStateChanged((user) => {
 
 // Admin Login Function
 function loginAdmin() {
-    const pass = document.getElementById("admin-password").value;
-    const email = "riyasharma.official342@gmail.com";
+    const pass = document.getElementById("@Tanujuelyshop76").value;
+    const email = "tanujuelyshop@gmail.com";
 
     auth.signInWithEmailAndPassword(email, pass)
         .catch(error => alert("Login Failed: " + error.message));
