@@ -1,19 +1,3 @@
-<header class="header">
-
-  <div class="logo">
-    MyShop
-  </div>
-
-  <div class="search-bar">
-    <input type="text" id="searchInput" placeholder="Search for products..." onkeyup="searchProduct()">
-    <button>🔍</button>
-  </div>
-
-  <div class="right-menu">
-    <button onclick="showCart()">🛒 Cart</button>
-  </div>
-
-</header>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,36 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tanu Juely Shop</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore-compat.js"></script>
 </head>
 <body>
 
-<header>
-    <h1>Tanu Juely Shop</h1>
-    <p>Fashion for Every Girl</p>
-</header>
+    <header>
+        <div class="logo">Tanu Juely Shop</div>
+        <div class="nav-right">
+            <select id="lang-switch" onchange="switchLanguage()">
+                <option value="en">English</option>
+                <option value="hi">Hindi (हिंदी)</option>
+            </select>
+            <a href="admin/index.html" class="admin-btn">Admin Login</a>
+        </div>
+    </header>
 
-<section class="hero">
-    <h2>Welcome to Tanu Juely Shop</h2>
-    <p>Trendy Fashion at Affordable Prices</p>
-</section>
+    <section class="controls">
+        <input type="text" id="search-bar" placeholder="Search products..." onkeyup="searchProducts()">
+        <select id="category-filter" onchange="filterCategory()">
+            <option value="all">All Categories</option>
+            <option value="Kurti">Kurti</option>
+            <option value="Saree">Saree</option>
+            <option value="Tops">Tops</option>
+        </select>
+    </section>
 
-<section class="products">
-    <h2>Featured Products</h2>
+    <main id="product-container" class="product-grid">
+        </main>
 
-    <div class="product-card">
-        <img src="https://via.placeholder.com/300x350" alt="Product">
-        <h3>Pink Kurti</h3>
-        <p>₹199</p>
-        <a href="https://wa.me/917678292592?text=I%20want%20to%20order%20Pink%20Kurti%20(Code:%20TJ001)">
-            Order Now
-        </a>
+    <div id="order-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeOrderModal()">&times;</span>
+            <h3 id="form-title">Checkout Details</h3>
+            <form id="order-form" onsubmit="submitOrder(event)">
+                <input type="hidden" id="order-product-id">
+                <input type="text" id="cust-name" placeholder="Full Name *" required>
+                <input type="tel" id="cust-phone" placeholder="Mobile Number *" required>
+                <input type="text" id="cust-address" placeholder="Complete Address *" required>
+                <input type="text" id="cust-city" placeholder="City *" required>
+                <input type="text" id="cust-pincode" placeholder="Pincode *" required>
+                
+                <label>Size:</label>
+                <select id="cust-size">
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                </select>
+
+                <button type="submit" class="submit-order-btn">Confirm Order (WhatsApp)</button>
+            </form>
+        </div>
     </div>
 
-</section>
-
-<footer>
-    <p>© 2026 Tanu Juely Shop</p>
-</footer>
-
+    <script src="script.js"></script>
 </body>
 </html>
