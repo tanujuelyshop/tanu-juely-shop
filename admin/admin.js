@@ -42,7 +42,7 @@ auth.onAuthStateChanged((user) => {
 
 // Admin Login Function
 function loginAdmin() {
-    const pass = document.getElementById("@Tanujuelyshop76").value;
+    const pass = document.getElementById("admin-password").value;
     const email = "tanujuelyshop@gmail.com";
 
     auth.signInWithEmailAndPassword(email, pass)
